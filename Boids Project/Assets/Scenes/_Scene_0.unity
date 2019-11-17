@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 37360030}
   - component: {fileID: 37360029}
   - component: {fileID: 37360032}
+  - component: {fileID: 37360033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -207,6 +208,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c48986e5e5585479655ff6892ddd16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &37360033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37360028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d9bf920cc81344fac7bdd880bac654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 2211445209384364231, guid: a1227f8d483715548b3cab19c8cd7407,
+    type: 3}
+  boidAnchor: {fileID: 172180541}
+  numBoids: 100
+  spawnRadius: 100
+  spawnDelay: 0.1
+  velocity: 30
+  neighborDist: 30
+  collDist: 4
+  velMatching: 0.25
+  flockCentering: 0.2
+  collAvoid: 2
+  attractPull: 2
+  attractPush: 2
+  attractPushDist: 5
 --- !u!1 &172180540
 GameObject:
   m_ObjectHideFlags: 0
