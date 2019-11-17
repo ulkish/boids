@@ -44,4 +44,34 @@ public class Boid : MonoBehaviour
         get { return transform.position; }
         set { transform.position = value; }
     }
+
+    // FixedUpdate is called once per physics update (i.e. 50x/second)
+    void FixedUpdate()
+    {
+        Vector3 vel = rigid.velocity;
+        Spawner spn = Spawner.S;
+
+        // ATTRACTION - Move towards the Attractor
+        Vector3 delta = Attractor.POS - pos;
+        // Check whether we're attracted or avoiding the Attractor
+        bool attracted = (delta.magnitude > spn.attractPushDist);
+        Vector3 velAttract = delta.normalized * spn.velocity;
+        
+        // Apply all the velocities.
+        float fdt = Time.fixedDeltaTime;
+
+        if (attracted) {
+            vel = Vector3.Lerp(vel, velAttract, spn.attractPull*fdt);
+        } else {
+            vel = Vector3.Lerp(vel, -velAttract, spn.attractPush*fdt);
+        }
+
+        // Set vel to the velocity set on the Spawner singleton.
+        vel = vel.normalized * spn.velocity;
+        // Finally assign this to the Rigidbody.
+        rigid.velocity = vel;
+        // Look in the direction of the new velocity.
+        LookAhead();
+
+    }
 }
