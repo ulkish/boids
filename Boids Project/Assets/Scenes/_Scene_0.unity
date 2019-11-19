@@ -227,14 +227,14 @@ MonoBehaviour:
   spawnRadius: 100
   spawnDelay: 0.1
   velocity: 30
-  neighborDist: 30
-  collDist: 4
+  neighborDist: 8
+  collDist: 2
   velMatching: 0.25
-  flockCentering: 0.2
-  collAvoid: 2
-  attractPull: 2
-  attractPush: 2
-  attractPushDist: 5
+  flockCentering: 8
+  collAvoid: 10
+  attractPull: 1
+  attractPush: 20
+  attractPushDist: 20
 --- !u!1 &172180540
 GameObject:
   m_ObjectHideFlags: 0
